@@ -1,0 +1,3 @@
+LOAD DATA INFILE '/tmp/population.csv' INTO TABLE population
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n';

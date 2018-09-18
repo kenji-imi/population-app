@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>axios sample</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div v-show="loading" class="loader">Now loading...</div>
+    <div v-show="!loading" class="itemContainer">
+      <div v-for="result in results" class="item">
+        <div>ID: {{ result.ID }}</div>
+        <!-- <div>都道府県コード: {{ result.PrefCode }}</div> -->
+        <div>都道府県名: {{ result.PrefName }}</div>
+        <!-- <div>元号: {{ result.EraName }}</div> -->
+        <!-- <div>和暦: {{ result.EraYear }}</div> -->
+        <div>西暦: {{ result.Year }}</div>
+        <div>人口総数: {{ result.Population }}</div>
+        <div>人口(男): {{ result.MalePopulation }}</div>
+        <div>人口(女): {{ result.FemalePopulation }}</div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

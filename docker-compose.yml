@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql
+    # command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    restart: always
+    environment:
+    - MYSQL_ROOT_HOST=127.0.0.1
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_USER=root
+    - MYSQL_PASSWORD=root
+    #- MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    - MYSQL_DATABASE=populationdb
+    - MYSQL_CHARSET=utf8
+    - TZ="Asia/Tokyo"
+    ports:
+    - "3309:3306"
+    volumes:
+    - mysql-data:/var/lib/mysql # volumeをmount(永続化させる)
+    - ./db/conf/my.cnf:/etc/mysql/conf.d/z_my.cnf
+    - ./db/init/:/docker-entrypoint-initdb.d
+    - ./data/population.csv:/tmp/population.csv
+    container_name: mysql-population-app-db
+  # ---------------------------------------------------
+
+volumes:
+  mysql-data: # docker volume create --name=mysql-data
+    driver: local # ボリューム・ドライバがどのボリュームを使うべきかを指定します。デフォルトは local
