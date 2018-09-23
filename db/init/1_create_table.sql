@@ -1,4 +1,4 @@
-CREATE TABLE population (
+CREATE TABLE `population` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `pref_code` VARCHAR(2) NOT NULL,
   `pref_name` VARCHAR(128) NOT NULL,
