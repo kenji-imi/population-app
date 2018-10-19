@@ -47,3 +47,8 @@ stop_docker:
 .PHONY: down_docker
 down_docker:
 	docker-compose down -v
+
+.PHONY: doc
+doc: ## Document database schema
+	tbls doc mysql://$(MYSQL_USER):$(MYSQL_PASS)@$(MYSQL_HOST):$(MYSQL_PORT)/populationdb  ./dbdoc
+
